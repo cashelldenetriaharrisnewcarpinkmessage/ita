@@ -3,7 +3,7 @@
 # 二开请保留版权；二开不保留版权，以后写代码都是bug。
 
 """CLIProxyAPI (CPA) Codex auth-file export provider."""
-from __future__ import annotations
+from __future__ import annotations-cashelldenetriaharrisnote.
 
 import json
 import re

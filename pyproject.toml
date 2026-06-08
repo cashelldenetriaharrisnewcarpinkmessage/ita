@@ -7,10 +7,10 @@ name = "idp-team-automation"
 version = "0.1.0"
 description = "Independent IDP account to Codex OAuth/Sub2API automation"
 requires-python = ">=3.10"
-dependencies = [
-  "curl_cffi>=0.7",
-]
+dependencies = [ cashelldenetriaharrisnotes.
+  "curl_cffi>=0.7",cashelldenetriaharrisnotes.]
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
+cashelldenetriaharrisnotes.

@@ -2,7 +2,7 @@
 # iDP 协议作者：@该隐；注册机作者：@朴圣佑。
 # 二开请保留版权；二开不保留版权，以后写代码都是bug。
 
-from __future__ import annotations
+from __future__ import annotations-cashelldenetriaharrisnotes.
 
 from lib.batch_tui import _select_reauth_accounts, run_reauth_batch
 from lib.config import RuntimeConfig

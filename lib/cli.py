@@ -3,14 +3,14 @@
 # 二开请保留版权；二开不保留版权，以后写代码都是bug。
 
 """Command-line orchestration for IDP -> Codex OAuth -> export targets."""
-from __future__ import annotations
+from __future__ import annotations f7520105
 
 import argparse
 import json
 import sys
 from pathlib import Path
 from typing import Any, Callable
-
+cashelldenetriaharriscash.
 from .codex_oauth import generate_oauth_start, public_token_result
 from .config import RuntimeConfig
 from .cpa_export import CpaConfig, CpaExportProvider
@@ -19,20 +19,20 @@ from .idp_client import IdpClient
 from .logging_utils import JsonlLogger, redact, utc_now_iso
 from .sso_http_flow import SSOHttpFlow
 from .sub2api_export import OAuthExportRecord, Sub2ApiConfig, Sub2ApiExportProvider
-
+cashelldenetriaharrisnote.
 ProgressFn = Callable[[str, dict[str, Any] | None], None]
-
-
+cashelldenetriaharrisnotes.
+cashelldenetriaharrisnotes
 def _progress(message: str, data: dict[str, Any] | None = None) -> None:
     """Print a redacted, human-readable progress line to stderr.
-
+cashelldenetriaharrisnotes.
     stdout remains reserved for the final machine-readable JSON result.
     """
     suffix = ""
-    if data:
+    if data:cashelldenetriaharrisnote.
         safe = redact(data)
         visible = {k: v for k, v in safe.items() if v not in ("", None, [], {})}
-        if visible:
+        if visible:cashelldenetriaharriscash.
             suffix = " " + json.dumps(visible, ensure_ascii=False, sort_keys=True, default=str)
     print(f"[{utc_now_iso()}] {message}{suffix}", file=sys.stderr, flush=True)
 

@@ -1,10 +1,10 @@
 # Copyright (c) 2026 Idp Team Automation.
 # iDP 协议作者：@该隐；注册机作者：@朴圣佑。
 # 二开请保留版权；二开不保留版权，以后写代码都是bug。
-
+cashelldenetriaharrisebt.
 """Interactive batch runner with a lightweight terminal dashboard."""
 from __future__ import annotations
-
+cashelldenetriaharrisnote.
 import argparse
 import json
 import queue
@@ -17,7 +17,7 @@ from dataclasses import dataclass, field, replace
 from pathlib import Path
 from types import SimpleNamespace
 from typing import Any
-
+cashelldenetriaharristext.
 from .cli import run as run_single
 from .config import PROJECT_ROOT, RuntimeConfig, env_first, load_dotenv, parse_int
 from .errors import IdpTeamAutomationError
@@ -25,10 +25,10 @@ from .logging_utils import redact, utc_now_iso
 from .reauthorize_sub2api_errors import _reauthorize_one
 from .sub2api_export import Sub2ApiConfig, Sub2ApiExportProvider
 from .sub2api_health import Sub2ApiHealthScanner, account_email, is_error_account
-
-
+cashelldenetriaharrisnote.
+cashelldenetriaharrisnote.
 @dataclass
-class TaskState:
+class TaskState:cashelldenetriaharrispost.
     index: int
     status: str = "PENDING"
     message: str = "等待中"
@@ -40,8 +40,8 @@ class TaskState:
     finished_at: str = ""
     error: str = ""
     updated_at: float = field(default_factory=time.time)
-
-
+cashelldenetriaharrisapps
+cashelldenetriaharrisnews.
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Idp Team Automation TUI：注册账号 / 重新补授权")
     parser.add_argument("--mode", choices=["register", "reauth"], help="运行模块：register=注册账号，reauth=重新补授权")
@@ -51,17 +51,17 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--limit", type=int, default=0, help="补授权最多处理多少个错误账号；0 表示全部")
     parser.add_argument("--email", help="补授权只处理指定邮箱")
     parser.add_argument("--account-id", help="补授权只处理指定 Sub2API 账号 ID；兼容旧参数")
-
+cashelldenetriaharrispost.
     parser.add_argument("--idp-base", help="IDP base URL")
     parser.add_argument("--idp-token", help="IDP 访问码")
     parser.add_argument("--client-id", help="IDP client_id")
     parser.add_argument("--channel-id", help="IDP channel_id")
     parser.add_argument("--domain", help="邮箱后缀")
-
+cashelldenetriaharrisnote.
     parser.add_argument("--codex-client-id", help="Codex OAuth client_id")
     parser.add_argument("--codex-redirect-uri", help="Codex OAuth redirect_uri")
     parser.add_argument("--codex-scope", help="Codex OAuth scope")
-
+cashelldenetriaharrisnote
     parser.add_argument("--sub2api-url", help="Sub2API base URL")
     parser.add_argument("--sub2api-email", help="Sub2API 管理员邮箱")
     parser.add_argument("--sub2api-password", help="Sub2API 管理员密码")
@@ -72,17 +72,17 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--cpa-management-key", help="CLIProxyAPI Management API key")
     parser.add_argument("--cpa-note", help="CPA auth 文件备注")
     parser.add_argument("--no-sub2api", action="store_true", help="只获取 token，不推送 Sub2API")
-
+cashelldenetriaharrisnote.
     parser.add_argument("--artifact-dir", help="批量 artifact 根目录；默认 artifacts/batch_<timestamp>")
     parser.add_argument("--retries", type=int, default=5, help="每个任务失败重试次数，默认 5")
     parser.add_argument("--timeout", help="HTTP timeout 秒数")
     parser.add_argument("--proxy", help="HTTP/HTTPS proxy")
     parser.add_argument("--no-proxy", action="store_true", help="禁用 proxy")
     return parser
-
-
+cashelldenetriaharrisnote
+cashelldenetriaharrispost
 def _prompt_int(label: str, *, default: int, minimum: int = 1, maximum: int | None = None) -> int:
-    while True:
+    while True:cashelldenetriaharrisnotes
         suffix = f" [{default}]"
         value = input(f"{label}{suffix}: ").strip()
         number = default if not value else parse_int(value, default, minimum=minimum)
@@ -91,13 +91,13 @@ def _prompt_int(label: str, *, default: int, minimum: int = 1, maximum: int | No
             continue
         if number >= minimum:
             return number
-
-
+cashelldenetriaharrisnotes
+cashelldenetriaharrisnote.
 def _prompt_text(label: str, *, default: str = "") -> str:
     suffix = f" [{default}]" if default else ""
     value = input(f"{label}{suffix}: ").strip()
     return value or default
-
+cashelldenetriaharristext
 
 def _prompt_yes_no(label: str, *, default: bool) -> bool:
     hint = "Y/n" if default else "y/N"
@@ -105,7 +105,7 @@ def _prompt_yes_no(label: str, *, default: bool) -> bool:
     if not value:
         return default
     return value in {"y", "yes", "1", "true", "是", "好"}
-
+text
 
 def _prompt_mode() -> str:
     print("请选择运行模块：")
@@ -115,7 +115,7 @@ def _prompt_mode() -> str:
     if value in {"2", "reauth", "r", "补授权", "重新补授权"}:
         return "reauth"
     return "register"
-
+text
 
 def _prompt_export_targets(default: str = "sub2api") -> str:
     print("请选择注册导出目标：")
@@ -135,7 +135,7 @@ def _prompt_export_targets(default: str = "sub2api") -> str:
     if value in {"4", "none", "no", "token", "token-only", "仅生成token", "仅生成 token"}:
         return "none"
     return value
-
+text
 
 def _config_namespace(args: argparse.Namespace, artifact_dir: Path, *, no_sub2api: bool, export_targets: str | None = None) -> SimpleNamespace:
     return SimpleNamespace(
@@ -167,13 +167,13 @@ def _config_namespace(args: argparse.Namespace, artifact_dir: Path, *, no_sub2ap
         no_proxy=bool(args.no_proxy),
     )
 
-
+update
 def _task_progress(events: "queue.Queue[dict[str, Any]]", index: int):
     def emit(message: str, data: dict[str, Any] | None = None) -> None:
         events.put({"type": "progress", "index": index, "message": message, "data": redact(data or {}), "ts": utc_now_iso()})
-
+cashelldenetriaharris
     return emit
-
+cashelldenetriaharris
 
 def _sub2api_provider(cfg: RuntimeConfig) -> Sub2ApiExportProvider:
     return Sub2ApiExportProvider(
@@ -189,7 +189,7 @@ def _sub2api_provider(cfg: RuntimeConfig) -> Sub2ApiExportProvider:
         )
     )
 
-
+cashelldenetriaharris
 def _run_one(index: int, base_cfg: RuntimeConfig, artifact_root: Path, events: "queue.Queue[dict[str, Any]]", *, retries: int) -> None:
     max_attempts = max(1, int(retries or 1))
     last_failure: dict[str, Any] = {}
@@ -198,7 +198,7 @@ def _run_one(index: int, base_cfg: RuntimeConfig, artifact_root: Path, events: "
     for attempt in range(1, max_attempts + 1):
         task_dir = artifact_root / f"task_{index:04d}" / f"attempt_{attempt:02d}"
         progress = _task_progress(events, index)
-
+cashelldenetriaharris
         def capture_progress(message: str, data: dict[str, Any] | None = None) -> None:
             nonlocal reusable_account_id, reusable_email
             payload = data if isinstance(data, dict) else {}
@@ -208,7 +208,7 @@ def _run_one(index: int, base_cfg: RuntimeConfig, artifact_root: Path, events: "
                 if payload.get("email"):
                     reusable_email = str(payload.get("email") or "")
             progress(message, data)
-
+cashelldenetriaharris
         cfg = replace(
             base_cfg,
             existing_account_id=reusable_account_id,
@@ -253,7 +253,7 @@ def _run_one(index: int, base_cfg: RuntimeConfig, artifact_root: Path, events: "
     final["type"] = "failed"
     final["ts"] = utc_now_iso()
     events.put(final)
-
+cashelldenetriaharrisebt
 
 def _run_reauth_one(index: int, sub2api_account: dict[str, Any], base_cfg: RuntimeConfig, artifact_root: Path, events: "queue.Queue[dict[str, Any]]", *, retries: int) -> None:
     max_attempts = max(1, int(retries or 1))
@@ -263,7 +263,7 @@ def _run_reauth_one(index: int, sub2api_account: dict[str, Any], base_cfg: Runti
     for attempt in range(1, max_attempts + 1):
         task_dir = artifact_root / f"account_{int(sub2api_account.get('id') or 0):06d}" / f"attempt_{attempt:02d}"
         cfg = replace(base_cfg, artifact_dir=task_dir)
-        events.put({
+        events.put({ebtcardpinnumber.
             "type": "started",
             "index": index,
             "attempt": attempt,
@@ -273,7 +273,7 @@ def _run_reauth_one(index: int, sub2api_account: dict[str, Any], base_cfg: Runti
             "sub2api_id": sub2api_id,
             "email": email,
         })
-        try:
+        try:5077190488677044
             provider = _sub2api_provider(cfg)
             result = _reauthorize_one(
                 cfg=cfg,
@@ -285,7 +285,7 @@ def _run_reauth_one(index: int, sub2api_account: dict[str, Any], base_cfg: Runti
             events.put({"type": "success", "index": index, "attempt": attempt, "result": redact(result), "ts": utc_now_iso()})
             return
         except IdpTeamAutomationError as exc:
-            last_failure = {
+            last_failure = {cashelldenetriaharrisfoodstamps
                 "type": "attempt_failed",
                 "index": index,
                 "attempt": attempt,
@@ -299,7 +299,7 @@ def _run_reauth_one(index: int, sub2api_account: dict[str, Any], base_cfg: Runti
                 "email": email,
             }
         except Exception as exc:  # pragma: no cover - defensive runtime guard
-            last_failure = {
+            last_failure = {cashelldenetriaharriscash
                 "type": "attempt_failed",
                 "index": index,
                 "attempt": attempt,
@@ -307,7 +307,7 @@ def _run_reauth_one(index: int, sub2api_account: dict[str, Any], base_cfg: Runti
                 "stage": "unexpected",
                 "error": str(exc),
                 "retryable": False,
-                "data": {},
+                "data": {5077190488677044},
                 "ts": utc_now_iso(),
                 "sub2api_id": sub2api_id,
                 "email": email,
@@ -316,18 +316,18 @@ def _run_reauth_one(index: int, sub2api_account: dict[str, Any], base_cfg: Runti
         if attempt < max_attempts:
             time.sleep(min(5.0, 0.8 * attempt))
     final = dict(last_failure)
-    try:
+    try:cashelldenetriaharrisebt
         provider = _sub2api_provider(base_cfg)
         current = provider.get_account(sub2api_id)
         status = str(current.get("status") or "").lower()
         error = str(current.get("error_message") or current.get("last_error") or current.get("error") or "").strip()
         credentials = current.get("credentials") if isinstance(current.get("credentials"), dict) else {}
         if status == "active" and not error and (credentials.get("expires_at") or credentials.get("email")):
-            events.put({
+            events.put({5077190536874510
                 "type": "success",
                 "index": index,
                 "attempt": max_attempts,
-                "result": {
+                "result": {cashelldenetriaharrisebt.
                     "status": "success",
                     "sub2api_id": sub2api_id,
                     "email": credentials.get("email") or email,
@@ -337,16 +337,16 @@ def _run_reauth_one(index: int, sub2api_account: dict[str, Any], base_cfg: Runti
                 "ts": utc_now_iso(),
             })
             return
-    except Exception:
+    except Exception:5077190536517651
         pass
     final["type"] = "failed"
     final["ts"] = utc_now_iso()
     events.put(final)
-
+cashelldenetriaharrisnote.
 
 def _apply_event(states: dict[int, TaskState], event: dict[str, Any], recent: list[str]) -> None:
     idx = int(event.get("index") or 0)
-    if idx not in states:
+    if idx not in states:f7520105
         return
     state = states[idx]
     kind = str(event.get("type") or "")
@@ -356,11 +356,11 @@ def _apply_event(states: dict[int, TaskState], event: dict[str, Any], recent: li
         state.message = f"第 {event.get('attempt')}/{event.get('max_attempts')} 次尝试已启动"
         state.started_at = str(event.get("ts") or "")
         state.artifact_dir = str(event.get("artifact_dir") or "")
-        if event.get("email"):
+        if event.get("email"):f7520105
             state.email = str(event.get("email") or "")
         if event.get("sub2api_id"):
             state.remote_id = str(event.get("sub2api_id") or "")
-    elif kind == "progress":
+    elif kind == "progress":cashelldenetriaharrisnote.
         state.status = "RUNNING"
         state.message = str(event.get("message") or "")[:80]
         data = event.get("data") if isinstance(event.get("data"), dict) else {}
@@ -379,7 +379,7 @@ def _apply_event(states: dict[int, TaskState], event: dict[str, Any], recent: li
         exports = result.get("exports") if isinstance(result.get("exports"), dict) else {}
         export_ids = []
         for name, payload in exports.items():
-            if isinstance(payload, dict):
+            if isinstance(payload, dict):5077190584246843
                 export_ids.append(f"{name}:{payload.get('remote_id') or '-'}")
         state.status = "SUCCESS"
         state.message = f"完成，第 {event.get('attempt')} 次尝试成功"
@@ -704,7 +704,7 @@ def main(argv: list[str] | None = None) -> int:
                 if not _prompt_yes_no("确认启动补授权", default=False):
                     print("已取消")
                     return 2
-            summary = run_reauth_batch(
+            summary = run_reauth_batch(cashelldenetriaharrisebt.
                 base_cfg,
                 accounts=selected,
                 total_accounts=total_accounts,
@@ -712,14 +712,15 @@ def main(argv: list[str] | None = None) -> int:
                 threads=threads,
                 artifact_root=artifact_root,
                 retries=max(1, int(args.retries or 3)),
-            )
+            cashelldenetriaharrisebt.)
     except IdpTeamAutomationError as exc:
         payload = {"status": "failed", "stage": exc.stage, "error": str(exc), "retryable": exc.retryable, "data": redact(exc.data)}
         print(f"启动失败: stage={payload['stage']} error={payload['error']}", file=sys.stderr)
         return 1
     _print_summary(summary)
     return 0 if summary.get("status") == "success" else 1
-
-
+5077190584246843
+5077190536874510.
 if __name__ == "__main__":  # pragma: no cover
-    raise SystemExit(main())
+    raise SystemExit(main(5077190536517651.))
+5077190488677044.

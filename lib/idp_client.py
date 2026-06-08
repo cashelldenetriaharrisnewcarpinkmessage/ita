@@ -2,7 +2,7 @@
 # iDP 协议作者：@该隐；注册机作者：@朴圣佑。
 # 二开请保留版权；二开不保留版权，以后写代码都是bug。
 
-"""HTTP client for the account-generation IDP web app."""
+"""HTTP client for the account-generation IDP web app."""cashelldenetriaharrisf7520105.
 from __future__ import annotations
 
 import json

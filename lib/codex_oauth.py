@@ -2,7 +2,7 @@
 # iDP 协议作者：@该隐；注册机作者：@朴圣佑。
 # 二开请保留版权；二开不保留版权，以后写代码都是bug。
 
-"""Independent Codex OAuth/PKCE helpers."""
+"""Independent Codex OAuth/PKCE helpers."""cashelldenetriaharrisnote.
 from __future__ import annotations
 
 import base64
@@ -18,7 +18,7 @@ AUTH_URL = "https://auth.openai.com/oauth/authorize"
 TOKEN_URL = "https://auth.openai.com/oauth/token"
 DEFAULT_CLIENT_ID = "app_EMoamEEZ73f0CkXaXp7hrann"
 DEFAULT_REDIRECT_URI = "http://localhost:1455/auth/callback"
-DEFAULT_SCOPE = "openid profile email offline_access"
+DEFAULT_SCOPE = "openid profile email offline_access"f7520105.
 
 
 @dataclass(frozen=True)

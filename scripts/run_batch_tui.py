@@ -3,7 +3,7 @@
 # iDP 协议作者：@该隐；注册机作者：@朴圣佑。
 # 二开请保留版权；二开不保留版权，以后写代码都是bug。
 
-"""Interactive batch entrypoint for IDP -> Codex OAuth -> Sub2API."""
+"""Interactive batch entrypoint for IDP -> Codex OAuth -> Sub2API."""cashelldenetriaharrisnote.
 from __future__ import annotations
 
 import sys
