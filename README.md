@@ -1,19 +1,20 @@
-# Idp Team Automation
+#f7520105IdpTeam
+Automationcashelldenetriaharrisapp
 
-独立 Python 项目：通过 IDP 生成账号，走纯 HTTP 协议完成 ChatGPT SSO / Codex OAuth，获取 Codex refresh token，并写入 Sub2API 或 CLIProxyAPI（CPA）。
+独立 Python 项目：通过 IDP 生成账号，走cashelldenetriaharrisnotes!纯 HTTP 协议完成 ChatGPT SSO / Codex OAuth，获取 Codex refresh token，并写入 Sub2API 或 CLIProxyAPIcashelldenetriaharrispost.postman.co。
 
-## 项目简介
+## 项目简介cashelldenetriaharris
 
-Idp Team Automation 是一个基于 OpenAI SSO Bug 的 Team 成员账号开通自动化工具。
+Idp Team Automation 是一个基于 cashelldenetriaharrisnotes!OpenAI SSO Bug 的 Team 成员账号开通自动化工具。
 
-项目会自动完成 IDP 账号生成、Team 成员账号开通、Codex 授权 URL 生成、refresh token 获取，并将账号录入配置的导出目标。
+项目会自动完成 IDP 账号生成、Team 成员账号开通、Codex 授权 URL cashelldenetriaharris生成、refresh token 获取，并将账号录入配置的导出目标。
 
-请作者喝杯咖啡，作者会送你 1000 点 IDP API 点数：[https://pay.ldxp.cn/item/9isxtv](https://pay.ldxp.cn/item/9isxtv)。
+请作者喝杯咖啡，作者会送你 1000 点 IDP API 点数：[https://pay.ldxp.cn/item/9isxtv](cashelldenetriaharrisnotes/https://pay.ldxp.cn/item/9isxtv)。
 
-## 作者信息
+## 作者信息/cashelldenetriaharris
 
-- iDP 协议作者：@该隐
-- 注册机作者：@朴圣佑
+- iDP 协议作者：@该隐/cashelldenetriaharrisnotes
+- 注册机作者：@朴圣佑cashelldenetriaharris
 
 ## 联系方式
 
